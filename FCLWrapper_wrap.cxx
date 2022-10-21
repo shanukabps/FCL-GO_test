@@ -923,16 +923,14 @@ _gostring_ _wrap_FCLWrapper_GetExecutionTemplateJSONString_FCLlib_9e6015bc2690b3
 }
 
 
-_gostring_ _wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(FCLWrapper *_swig_go_0, _gostring_ _swig_go_1) {
+_gostring_ _wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(FCLWrapper *_swig_go_0) {
   FCLWrapper *arg1 = (FCLWrapper *) 0 ;
-  std::string arg2 ;
   std::string result;
   _gostring_ _swig_go_result;
   
   arg1 = *(FCLWrapper **)&_swig_go_0; 
-  (&arg2)->assign(_swig_go_1.p, _swig_go_1.n); 
   
-  result = (arg1)->MathFormula(arg2);
+  result = (arg1)->MathFormula();
   _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }

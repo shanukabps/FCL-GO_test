@@ -77,7 +77,7 @@ std::string  FCLWrapper::GetExecutionTemplateJSONString(const char *defFilePath 
     return  fm.BuildExecutionTemplateJSONString(defFilePath,query);
 }
 
-std::string  FCLWrapper::MathFormula(std::string line) {
+std::string  FCLWrapper::MathFormula() {
     Formula fm;
-    return  fm.ProcessLine(line);
+    return  "helllo";
 }

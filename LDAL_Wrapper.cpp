@@ -459,20 +459,15 @@ std::string LDAL_Wrapper::GetCommonJSONResult(MSTRING defFilePath, MSTRING query
     ScriptReader sr;
     ScriptReaderOutput op;
 
-
     std::string bSucc = sr.ProcessScript(pMD, op, queryString);
     if (bSucc!="")
     {
-
         std::wcout << "\nFailed to read script\n";
         return bSucc;
     }
-
     //Parse text to TDPNodeTree
-
     std::string json ="";
     std::string jsonline = "";
-
 
     MSTRINGSTREAM jsonStringStream(jsonString);
 
@@ -482,7 +477,6 @@ std::string LDAL_Wrapper::GetCommonJSONResult(MSTRING defFilePath, MSTRING query
     }
     jsonStringStream.clear();
 
-    //std::cout<<jsonline<<"\n";
     Node *root= LogJsonParser::CommonJSONToNodeTree(json);
     ExecutionContext ec;
     ec.p_mapFunctions = &op.map_Functions;
@@ -499,14 +493,10 @@ std::string LDAL_Wrapper::GetCommonJSONResult(MSTRING defFilePath, MSTRING query
     db.DebugResult(&ec.map_Var,pMD);
     //std::cout << pRESULT->GetAggregatedValue();
     std::string result="";
-
     result = ResultGenerator::CreateResult(pRESULT);
-
     pY->DestroyWithSubTree();
     pRESULT->DestroyWithSubTree();
     root->DestroyWithSubTree();
-
-
     return result;
 }
 

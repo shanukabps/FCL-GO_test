@@ -20,7 +20,7 @@ public:
     std::string  GetOTPResultV2(const char *defFilePath ,const char *query,const char *json);
     std::string  GetCommonJSON(const char *defFilePath ,const char *query,const char *json);
     std::string  GetExecutionTemplateJSONString(const char *defFilePath ,const char *query);
-    std::string MathFormula(std::string line);
+    std::string MathFormula();
 };
 
 #endif //CODE_FCLWRAPPER_H

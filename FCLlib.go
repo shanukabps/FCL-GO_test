@@ -70,7 +70,6 @@ typedef _gostring_ swig_type_39;
 typedef _gostring_ swig_type_40;
 typedef _gostring_ swig_type_41;
 typedef _gostring_ swig_type_42;
-typedef _gostring_ swig_type_43;
 extern void _wrap_Swig_free_FCLlib_9e6015bc2690b363(uintptr_t arg1);
 extern uintptr_t _wrap_Swig_malloc_FCLlib_9e6015bc2690b363(swig_intgo arg1);
 extern uintptr_t _wrap_new_StringVector__SWIG_0_FCLlib_9e6015bc2690b363(void);
@@ -108,7 +107,7 @@ extern swig_type_27 _wrap_FCLWrapper_GetTDPResultV2_FCLlib_9e6015bc2690b363(uint
 extern swig_type_31 _wrap_FCLWrapper_GetOTPResultV2_FCLlib_9e6015bc2690b363(uintptr_t arg1, swig_type_32 arg2, swig_type_33 arg3, swig_type_34 arg4);
 extern swig_type_35 _wrap_FCLWrapper_GetCommonJSON_FCLlib_9e6015bc2690b363(uintptr_t arg1, swig_type_36 arg2, swig_type_37 arg3, swig_type_38 arg4);
 extern swig_type_39 _wrap_FCLWrapper_GetExecutionTemplateJSONString_FCLlib_9e6015bc2690b363(uintptr_t arg1, swig_type_40 arg2, swig_type_41 arg3);
-extern swig_type_42 _wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(uintptr_t arg1, swig_type_43 arg2);
+extern swig_type_42 _wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(uintptr_t arg1);
 extern uintptr_t _wrap_new_FCLWrapper_FCLlib_9e6015bc2690b363(void);
 extern void _wrap_delete_FCLWrapper_FCLlib_9e6015bc2690b363(uintptr_t arg1);
 #undef intgo
@@ -594,15 +593,11 @@ func (arg1 SwigcptrFCLWrapper) GetExecutionTemplateJSONString(arg2 string, arg3 
 	return swig_r_1
 }
 
-func (arg1 SwigcptrFCLWrapper) MathFormula(arg2 string) (_swig_ret string) {
+func (arg1 SwigcptrFCLWrapper) MathFormula() (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
-	_swig_i_1 := arg2
-	swig_r_p := C._wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(C.uintptr_t(_swig_i_0), *(*C.swig_type_43)(unsafe.Pointer(&_swig_i_1)))
+	swig_r_p := C._wrap_FCLWrapper_MathFormula_FCLlib_9e6015bc2690b363(C.uintptr_t(_swig_i_0))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
-	if Swig_escape_always_false {
-		Swig_escape_val = arg2
-	}
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
 	return swig_r_1
@@ -633,7 +628,7 @@ type FCLWrapper interface {
 	GetOTPResultV2(arg2 string, arg3 string, arg4 string) (_swig_ret string)
 	GetCommonJSON(arg2 string, arg3 string, arg4 string) (_swig_ret string)
 	GetExecutionTemplateJSONString(arg2 string, arg3 string) (_swig_ret string)
-	MathFormula(arg2 string) (_swig_ret string)
+	MathFormula() (_swig_ret string)
 }
 
 
