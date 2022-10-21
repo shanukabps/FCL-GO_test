@@ -12,7 +12,9 @@
 #include <string>
 //#include "LogJsonParser.h"
 //#include "OTPParser.h"
+#include "json.hpp"
 
+using json = nlohmann::json;
 
 
 void FCLWrapper::RunELInterpretter(const char *defFilepath) {
@@ -79,5 +81,7 @@ std::string  FCLWrapper::GetExecutionTemplateJSONString(const char *defFilePath 
 
 std::string  FCLWrapper::MathFormula() {
     Formula fm;
-    return  "helllo";
+    json j;
+    j={{"A",1},{"n","NAME"}};
+    return  j.dump();
 }
