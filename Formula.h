@@ -34,7 +34,7 @@ public:
 
     json EntityToJson(MULONG e);
 
-    json PEntityToJson(PENTITY e);
+    json PEntityToJson(MULONG e);
 
     json ListOfCommandToJson(LST_COMMANDPTR lc);
 

@@ -57,18 +57,18 @@ std::string Formula::ConvertExecutionTemplateToJSON(ExecutionTemplateList *f) {
     }
     ExecutionTemplate *v;
     v = f->at(0);
-    return ExecutionTemplateToJSON(v).dump();
+    return ExecutionTemplateToJSON(v).dump(4);
 }
 
 json Formula::EntityToJson(MULONG e) {
     json j;
-    j = {{"p_Entity", e}};
+    j = {{"ul_type", e}};
     return j;
 }
 
-json Formula::PEntityToJson(PENTITY e) {
+json Formula::PEntityToJson(MULONG i) {
     json j;
-    j = {{"p_Entity", e->ul_Type}};
+    j = {{"ul_type", i}};
     return j;
 }
 
@@ -85,7 +85,7 @@ json Formula::ListOfCommandToJson(LST_COMMANDPTR lc) {
                 {"s_AdditionalFuncName", c.s_AdditionalFuncName},
         };
         if (c.p_EntityArg != PENTITY{}) {
-            j["p_EntityArg"] = PEntityToJson(c.p_EntityArg);
+            j["p_EntityArg"] = PEntityToJson(c.p_EntityArg->ul_Type);
         }
         arr.push_back(j);
     }
@@ -98,13 +98,17 @@ json Formula::ListOfCommandToJson(LST_COMMANDPTR lc) {
 json Formula::ExecutionTemplateToJSON(ExecutionTemplate *et) {
     json j = {
             {"s_StartVarName",    et->s_StartVarName},
-            {"lst_Commands",      ListOfCommandToJson(et->lst_Commands)},
-            {"Entity",            EntityToJson(et->ul_Type)},
+            {"p_Entity",          PEntityToJson(ENTITY_TYPE_NULL)},
+            {"lst_Commands",      {}},
             {"ul_SpecialCommand", et->ul_SpecialCommand},
-            {"s_CodeLine",        et->s_CodeLine}
+            {"s_CodeLine",        et->s_CodeLine},
+            {"ul_type",           et->ul_Type},
     };
     if (et->p_Entity != PENTITY{}) {
-        j["p_Entity"] = PEntityToJson(et->p_Entity);
+        j["p_Entity"] = PEntityToJson(et->p_Entity->ul_Type);
+    }
+    if (et->lst_Commands.size() != 0) {
+        j["lst_Commands"] = ListOfCommandToJson(et->lst_Commands);
     }
     return j;
 }
