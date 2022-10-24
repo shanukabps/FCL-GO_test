@@ -1,3 +1,3 @@
-module github.com/dileepaj/FCL_Go
+module github.com/shanukabps/FCL-GO_test
 
 go 1.17
